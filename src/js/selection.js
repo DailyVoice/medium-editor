@@ -331,6 +331,9 @@
                 // If the previous sibling has text, then there are no empty blocks before this
                 else if (previousSibling.nodeValue) {
                     return -1;
+                //contentEditable="False" nodes are completely excluded and shouldn't be treated as empty blocks
+                } else if (previousSibling.isContentEditable === false) {
+                    return -1;
                 }
             }
 
